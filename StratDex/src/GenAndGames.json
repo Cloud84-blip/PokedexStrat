@@ -1,0 +1,10 @@
+{
+    "generation-i": ["red-blue", "yellow"],
+    "generation-ii": ["gold-silver", "crystal"],
+    "generation-iii": ["ruby-sapphire", "emerald", "firered-leafgreen"],
+    "generation-iv": ["diamond-pearl", "platinum", "heartgold-soulsilver"],
+    "generation-v": ["black-white"],
+    "generation-vi": ["x-y", "omega-ruby-alpha-sapphire"],
+    "generation-vii": ["sun-moon"],
+    "generation-viii": ["sword-shield"]
+}
