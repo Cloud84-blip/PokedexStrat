@@ -1,10 +1,10 @@
 {
     "generation-i": ["red-blue", "yellow"],
-    "generation-ii": ["gold-silver", "crystal"],
-    "generation-iii": ["ruby-sapphire", "emerald", "firered-leafgreen"],
+    "generation-ii": ["gold", "silver", "crystal"],
+    "generation-iii": ["ruby-sapphire", "emerald", "firered", "leafgreen"],
     "generation-iv": ["diamond-pearl", "platinum", "heartgold-soulsilver"],
     "generation-v": ["black-white"],
-    "generation-vi": ["x-y", "omega-ruby-alpha-sapphire"],
-    "generation-vii": ["sun-moon"],
-    "generation-viii": ["sword-shield"]
+    "generation-vi": ["x-y", "omegaruby-alphasapphire"],
+    "generation-vii": ["ultra-sun-ultra-moon"],
+    "generation-viii": ["icons", "sword", "shield"]
 }

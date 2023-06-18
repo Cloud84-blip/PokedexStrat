@@ -26,6 +26,7 @@ export default class Pokemon extends Component {
         fetch(this.state.url)
             .then(response => response.json())
             .then(data => {
+                
                 data.stats.forEach(stat => {
                     this.base_stats[stat.stat.name] = stat.base_stat
                 })
@@ -35,8 +36,19 @@ export default class Pokemon extends Component {
                 data.types.forEach(type => {
                     this.types.push({name:type.type.name, url:type.type.url})
                 })
-                this.sprites = data.sprites.versions[this.gen]
-                console.log(this.sprites["red-blue"])
+
+                // console.log(GenAndGames[this.gen][0])
+                // console.log(data.sprites.versions)
+                // console.log(data.sprites.versions[GenAndGames[this.gen]])
+                //console.log(GenAndGames[this.gen])
+                console.log(data.sprites.versions[this.gen])
+                // console.log(data.sprites.versions[this.gen])
+                // console.log(data.sprites.versions[this.gen][GenAndGames[this.gen][0]])
+
+                // console.log(data.sprites.versions[this.gen][GenAndGames[this.gen][0]])
+                this.sprites = data.sprites.versions[this.gen][GenAndGames[this.gen][0]]
+                // console.log(this.sprites)
+                
             })
             .catch(error => console.log("Error fetching complete data for pokemon : " + this.state.name +  " " +error))      
     }
@@ -47,12 +59,23 @@ export default class Pokemon extends Component {
             .then(data => {
                 this.setState({name_fr: data.names[4].name})
             })
-            .catch(error => console.log(error))
+            .catch(error =>{
+                // if error is 404, it means that the pokemon doesn't have a french name or
+                // it is a mega evolution, so we try to get the french name of the base pokemon
+                if (error.response.status === 404) {
+                    fetch("https://pokeapi.co/api/v2/pokemon-species/"+this.state.name+"?language=fr")
+                        .then(response => response.json())
+                        .then(data => {
+                            this.setState({name_fr: data.names[4].name})
+                        })
+                        .catch(error => console.log("Error fetching french name for pokemon : " + this.state.name +  " " +error))
+                }
+            })
     }
   render() {
     return (
         <div> 
-            <img src={this.sprites[GenAndGames[this.gen]]} alt={this.state.name} />  
+            <img src={this.sprites["front_default"]} alt={this.state.name} />  
         </div>
     )
   }

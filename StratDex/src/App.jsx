@@ -26,7 +26,6 @@ function App() {
   useEffect(() => {
     console.log("useEffect")
     const LoadFirstGen = async () => {
-      console.log(genMap[current_gen])
       const pokemon = await callPokemonapi(genMap[current_gen])
       setPokemon(pokemon)
     }
@@ -36,7 +35,8 @@ function App() {
   const handleChange = () => {
     const gen = document.getElementById("Select").value
     setCurrentGen(gen)
-    const url = genMap[current_gen]
+    const url = genMap[gen]
+    console.log(gen, url)
     const LoadGenClick = async () => {
       const pokemon = await callPokemonapi(url)      
       setPokemon(pokemon)
